@@ -1,103 +1,127 @@
-import Image from "next/image";
+import React from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CookieBanner from "@/components/CookieBanner";
+import AdSlot from "@/components/Adslot"; 
 
-export default function Home() {
+export const metadata = {
+  title: "isitbudgettime Suite | Free Budget, Savings, Debt, and Bill Tools",
+  description: "Use our free personal finance mini tools to manage your budget, savings goals, debt repayment, subscription costs, and bill reminders. Simple and privacy-friendly!",
+  keywords: "budget planner, savings goal tracker, debt snowball calculator, subscription cost calculator, bill reminder tool, personal finance tools, free money tools",
+  openGraph: {
+    title: "isitbudgettime Suite",
+    description: "Simple, free tools to help you manage your budget, savings, debt, subscriptions, and bills — all in one place.",
+    url: "https://your-site-url.com/",
+    siteName: "isitbudgettime Suite",
+    images: [
+      {
+        url: "https://your-site-url.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Personal Finance Tools Suite",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "isitbudgettime Suite",
+    description: "Simple, free tools to manage your money smarter: budget planner, savings tracker, debt payoff calculator, and more.",
+    images: ["https://your-site-url.com/og-image.png"],
+  },
+};
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Navbar />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white flex flex-col items-center p-8">
+        {/* Hero Section */}
+<section className="w-full max-w-7xl text-center py-24 px-4">
+  <h1 className="text-5xl md:text-6xl font-extrabold mb-6 text-blue-700 leading-tight">
+    Take Control of Your Finances <br className="hidden md:inline" />
+    with Free, Powerful Tools
+  </h1>
+  <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+    Build budgets, save for goals, crush your debts, and never miss a bill — all with simple, private, easy-to-use tools.
+  </p>
+
+  <div className="flex flex-col md:flex-row gap-4 justify-center">
+    <a
+      href="/all-tools"
+      className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
+    >
+      🚀 Get Started Free
+    </a>
+  </div>
+</section>
+
+        {/* Featured Tools */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full" id="tools">
+          {[
+            {
+              href: "/budget-planner",
+              icon: "📊",
+              title: "Budget Planner",
+              desc: "Plan your income and expenses fast.",
+            },
+            {
+              href: "/savings-goal-tracker",
+              icon: "💰",
+              title: "Savings Tracker",
+              desc: "Visualize your financial goals easily.",
+            },
+            {
+              href: "/debt-snowball-calculator",
+              icon: "🏦",
+              title: "Debt Snowball Calculator",
+              desc: "Pay off your smallest debts first and gain momentum.",
+            },
+          ].map((tool, idx) => (
+            <a
+              key={idx}
+              href={tool.href}
+              className="flex flex-col gap-4 bg-white shadow-sm hover:shadow-md transition rounded-2xl p-6 border border-gray-200 hover:border-blue-400"
+            >
+              <div className="text-5xl">{tool.icon}</div>
+              <h2 className="text-2xl font-bold text-blue-700">{tool.title}</h2>
+              <p className="text-gray-600">{tool.desc}</p>
+            </a>
+          ))}
+        </section>
+
+        {/* About / SEO Section */}
+        <section className="max-w-4xl mt-20 text-gray-700 text-base leading-relaxed" id="about">
+          <h2 className="text-3xl font-bold mb-6 text-center">Why Choose Our Tools?</h2>
+          <p className="mb-6">
+            Financial tools don't have to be complicated. Our suite gives you fast, private, powerful solutions for budgeting, saving, and debt management — without login walls or bloated apps.
+          </p>
+
+          <h3 className="text-2xl font-semibold mb-4 mt-8">Built for Simplicity</h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>No sign-ups required. 100% privacy-focused.</li>
+            <li>Mobile-friendly and lightweight.</li>
+            <li>Instant insights — no waiting or confusing dashboards.</li>
+            <li>Free forever. No hidden fees or upsells.</li>
+          </ul>
+
+          <div className="text-center mt-12">
+            <a
+              href="/all-tools"
+              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
+            >
+              🌟 See All Free Tools
+            </a>
+          </div>
+        </section>
+          {/* AdSense Ad Slot */}
+          <section className="max-w-4xl mt-20">
+            <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
+          </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      <CookieBanner />
+      <Footer />
+    </>
   );
 }
