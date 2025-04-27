@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl font-bold mb-6 text-blue-700 text-center">Privacy Policy</h1>
 
           <p>
-            Personal Finance Mini Tools Suite ("we," "our," "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.
+            isitbudgettime (we, our, us) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.
           </p>
 
           <h2 className="text-2xl font-semibold">Information We Collect</h2>

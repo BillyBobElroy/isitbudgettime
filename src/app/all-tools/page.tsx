@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/Adslot";
+import Link from "next/link";
 
 export const metadata = {
   title: "All Tools | isitbudgettime",
@@ -81,7 +82,7 @@ export default function AllToolsPage() {
             <li>Gain better control over monthly spending and income.</li>
             <li>Stay motivated by tracking savings milestones visually.</li>
             <li>Pay off debt faster using smart, psychological strategies.</li>
-            <li>Catch "subscription leaks" and reduce unnecessary expenses.</li>
+            <li>Catch subscription leaks and reduce unnecessary expenses.</li>
             <li>Never miss bill due dates and avoid costly late fees.</li>
           </ul>
 
@@ -94,12 +95,12 @@ export default function AllToolsPage() {
 
           {/* Back to Home Button */}
           <div className="mt-12 text-center">
-            <a
+          <Link
               href="/"
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
-            >
-              ← Back to Home
-            </a>
+        >
+            ← Back to Home
+          </Link>
           </div>
         </section>
         {/* AdSense Ad Slot */}

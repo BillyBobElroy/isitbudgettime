@@ -101,7 +101,7 @@ export default function BudgetPlannerPage() {
           Budgeting helps you stay in control of your money, prepare for unexpected costs, reduce financial stress, and reach your savings goals faster.
         </p>
         <h3 className="text-xl font-semibold mt-6 mb-2">FAQs</h3>
-        <p className="mb-2"><strong>What is the 50/30/20 rule?</strong> It's a popular budgeting method: 50% of income for needs, 30% for wants, and 20% for savings.</p>
+        <p className="mb-2"><strong>What is the 50/30/20 rule?</strong> It is a popular budgeting method: 50% of income for needs, 30% for wants, and 20% for savings.</p>
         <p className="mb-2"><strong>Should I include subscriptions?</strong> Yes! Small monthly subscriptions add up quickly over the year.</p>
       </section>
       {/* AdSense Ad Slot */}

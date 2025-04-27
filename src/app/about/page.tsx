@@ -19,7 +19,7 @@ export default function AboutPage() {
             About isitbudgettime Suite
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            We're here to help you manage your money smarter — with lightweight, privacy-first financial tools anyone can use, anytime, for free.
+            We are here to help you manage your money smarter — with lightweight, privacy-first financial tools anyone can use, anytime, for free.
           </p>
         </section>
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <div>
             <h2 className="text-3xl font-bold mb-4">How It Works</h2>
             <p className="mb-4">
-              Each tool — whether it's the Budget Planner, Savings Tracker, Debt Snowball Calculator, or Bill Reminder — works entirely within your browser. We use simple local storage to save your entries, meaning your data stays private and on your device.
+              Each tool — whether it iss the Budget Planner, Savings Tracker, Debt Snowball Calculator, or Bill Reminder — works entirely within your browser. We use simple local storage to save your entries, meaning your data stays private and on your device.
             </p>
             <p>
               No accounts. No subscriptions. No hidden fees. Just instant, lightweight, easy-to-use financial calculators at your fingertips.

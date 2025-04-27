@@ -136,7 +136,7 @@ export default function DebtSnowballCalculatorPage() {
           <li>Make minimum payments on all debts.</li>
           <li>Put any extra money toward the debt with the smallest balance.</li>
           <li>Once a debt is paid off, roll that payment into the next smallest debt.</li>
-          <li>Repeat until you're debt-free!</li>
+          <li>Repeat until you are debt-free!</li>
         </ul>
 
         <h3 className="text-xl font-semibold mt-6 mb-2">FAQs</h3>

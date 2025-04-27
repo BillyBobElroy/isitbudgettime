@@ -95,7 +95,7 @@ export default function HomePage() {
         <section className="max-w-4xl mt-20 text-gray-700 text-base leading-relaxed" id="about">
           <h2 className="text-3xl font-bold mb-6 text-center">Why Choose Our Tools?</h2>
           <p className="mb-6">
-            Financial tools don't have to be complicated. Our suite gives you fast, private, powerful solutions for budgeting, saving, and debt management — without login walls or bloated apps.
+            Financial tools do not have to be complicated. Our suite gives you fast, private, powerful solutions for budgeting, saving, and debt management — without login walls or bloated apps.
           </p>
 
           <h3 className="text-2xl font-semibold mb-4 mt-8">Built for Simplicity</h3>
