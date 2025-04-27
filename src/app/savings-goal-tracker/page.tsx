@@ -20,7 +20,7 @@ export default function SavingsGoalTrackerPage() {
       {/* SEO */}
       <h1 className="text-4xl font-bold mb-4 text-center">Savings Goal Tracker</h1>
       <p className="text-lg mb-8 max-w-2xl text-center text-gray-600">
-        Track your savings progress toward any goal — whether it's a new car, vacation, or emergency fund.
+        Track your savings progress toward any goal — whether it is a new car, vacation, or emergency fund.
       </p>
 
       {/* Form */}
@@ -84,7 +84,7 @@ export default function SavingsGoalTrackerPage() {
       <section className="max-w-3xl text-gray-700 text-sm">
         <h2 className="text-2xl font-bold mb-4">Why Track Your Savings?</h2>
         <p className="mb-2">
-          Visualizing your savings progress keeps you motivated and focused. Whether you're building an emergency fund, saving for a big purchase, or planning for retirement, seeing your progress can help you stay committed to your goals.
+          Visualizing your savings progress keeps you motivated and focused. Whether you are building an emergency fund, saving for a big purchase, or planning for retirement, seeing your progress can help you stay committed to your goals.
         </p>
 
         <h3 className="text-xl font-semibold mt-6 mb-2">Tips for Reaching Your Goal Faster</h3>
@@ -97,7 +97,7 @@ export default function SavingsGoalTrackerPage() {
 
         <h3 className="text-xl font-semibold mt-6 mb-2">FAQs</h3>
         <p className="mb-2"><strong>What if I exceed my goal?</strong> Congratulations! You can either adjust your goal higher or start saving for another dream.</p>
-        <p className="mb-2"><strong>Should I track multiple goals?</strong> It's often best to focus on one major goal at a time for maximum progress, but you can manage multiple with good organization.</p>
+        <p className="mb-2"><strong>Should I track multiple goals?</strong> It is often best to focus on one major goal at a time for maximum progress, but you can manage multiple with good organization.</p>
       </section>
       {/* AdSense Ad Slot */}
       <section className="max-w-4xl mt-20">

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/Adslot"; 
+import Link from "next/link";
 
 export const metadata = {
   title: "Terms and Conditions | Personal Finance Mini Tools Suite",
@@ -17,7 +18,7 @@ export default function TermsPage() {
           <h1 className="text-4xl font-bold mb-6 text-blue-700 text-center">Terms and Conditions</h1>
 
           <p>
-            Welcome to Personal Finance Mini Tools Suite! By using our website, you agree to the following Terms and Conditions. Please read them carefully.
+            Welcome to isitbudgettime! By using our website, you agree to the following Terms and Conditions. Please read them carefully.
           </p>
 
           <h2 className="text-2xl font-semibold">Use of the Site</h2>
@@ -51,12 +52,12 @@ export default function TermsPage() {
           </p>
 
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/"
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
             >
               ← Back to Home
-            </a>
+            </Link>
           </div>
         </section>
       {/* AdSense Ad Slot */}

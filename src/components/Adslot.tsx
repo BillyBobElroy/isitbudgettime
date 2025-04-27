@@ -2,6 +2,13 @@
 
 import { useEffect } from "react";
 
+// Add safe type to window.adsbygoogle
+declare global {
+  interface Window {
+    adsbygoogle?: { push: (options: object) => void };
+  }
+}
+
 type AdSlotProps = {
   adClient: string;
   adSlot: string;
@@ -10,8 +17,8 @@ type AdSlotProps = {
 export default function AdSlot({ adClient, adSlot }: AdSlotProps) {
   useEffect(() => {
     try {
-      if (typeof window !== "undefined" && (window as any).adsbygoogle) {
-        (window as any).adsbygoogle.push({});
+      if (typeof window !== "undefined" && window.adsbygoogle) {
+        window.adsbygoogle.push({});
       }
     } catch (e) {
       console.error("AdSense error:", e);

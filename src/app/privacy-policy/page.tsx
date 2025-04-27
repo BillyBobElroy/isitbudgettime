@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AdSlot from "@/components/Adslot";
+import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy | Personal Finance Mini Tools Suite",
@@ -46,12 +47,12 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <div className="text-center mt-12">
-            <a
+            <Link
               href="/"
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
             >
               ← Back to Home
-            </a>
+            </Link>
           </div>
         </section>
       {/* AdSense Ad Slot */}

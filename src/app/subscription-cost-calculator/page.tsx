@@ -88,7 +88,7 @@ export default function SubscriptionCostCalculatorPage() {
       <section className="max-w-3xl text-gray-700 text-sm">
         <h2 className="text-2xl font-bold mb-4">Why Track Your Subscriptions?</h2>
         <p className="mb-2">
-          Subscriptions can silently drain your finances over time. Tracking them ensures you're aware of recurring charges and helps you decide if you're getting your money's worth.
+          Subscriptions can silently drain your finances over time. Tracking them ensures you are aware of recurring charges and helps you decide if you're getting your money's worth.
         </p>
 
         <h3 className="text-xl font-semibold mt-6 mb-2">Tips to Save Money on Subscriptions</h3>
@@ -100,8 +100,8 @@ export default function SubscriptionCostCalculatorPage() {
         </ul>
 
         <h3 className="text-xl font-semibold mt-6 mb-2">FAQs</h3>
-        <p className="mb-2"><strong>What's a common hidden cost?</strong> Small $5–$15 subscriptions (apps, streaming, newsletters) add up fast and often go unnoticed.</p>
-        <p className="mb-2"><strong>How often should I review subscriptions?</strong> Ideally every 3–6 months to cancel what you don't use anymore.</p>
+        <p className="mb-2"><strong>What is a common hidden cost?</strong> Small $5–$15 subscriptions (apps, streaming, newsletters) add up fast and often go unnoticed.</p>
+        <p className="mb-2"><strong>How often should I review subscriptions?</strong> Ideally every 3–6 months to cancel what you do not use anymore.</p>
       </section>
       {/* AdSense Ad Slot */}
       <section className="max-w-4xl mt-20">
