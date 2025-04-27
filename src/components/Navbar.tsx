@@ -11,9 +11,9 @@ export default function Navbar() {
           isitbudgettime
         </Link>
         <nav className="space-x-6 text-gray-600 font-medium text-sm">
-          <a href="/" className="hover:text-blue-600 transition">Home</a>
-          <a href="/all-tools" className="hover:text-blue-600 transition">Tools</a>
-          <a href="/about" className="hover:text-blue-600 transition">About</a>
+          <Link href="/" className="hover:text-blue-600 transition">Home</Link>
+          <Link href="/all-tools" className="hover:text-blue-600 transition">Tools</Link>
+          <Link href="/about" className="hover:text-blue-600 transition">About</Link>
         </nav>
       </div>
     </header>

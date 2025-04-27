@@ -88,7 +88,7 @@ export default function SubscriptionCostCalculatorPage() {
       <section className="max-w-3xl text-gray-700 text-sm">
         <h2 className="text-2xl font-bold mb-4">Why Track Your Subscriptions?</h2>
         <p className="mb-2">
-          Subscriptions can silently drain your finances over time. Tracking them ensures you are aware of recurring charges and helps you decide if you're getting your money's worth.
+          Subscriptions can silently drain your finances over time. Tracking them ensures you are aware of recurring charges and helps you decide if you are getting your moneys worth.
         </p>
 
         <h3 className="text-xl font-semibold mt-6 mb-2">Tips to Save Money on Subscriptions</h3>
