@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig: import('next').NextConfig = {
+  reactStrictMode: true,
+  experimental: {},
+  output: "standalone", // ✅ IMPORTANT for Vercel Tailwind build
 };
 
 export default nextConfig;
