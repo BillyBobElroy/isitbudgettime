@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import AdSlot from "@/components/Adslot"; 
 import Link from "next/link";
 
@@ -11,7 +9,6 @@ export const metadata = {
 export default function TermsPage() {
   return (
     <>
-      <Navbar />
 
       <main className="min-h-screen bg-white flex flex-col items-center p-8">
         <section className="max-w-4xl text-gray-700 text-base leading-relaxed space-y-8">
@@ -66,7 +63,6 @@ export default function TermsPage() {
       </section>
       </main>
 
-      <Footer />
     </>
   );
 }

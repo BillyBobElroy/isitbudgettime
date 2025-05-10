@@ -1,8 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig: import('next').NextConfig = {
+import nextMDX from '@next/mdx';
+import type { NextConfig } from 'next';
+
+const withMDX = nextMDX({
+  extension: /\.mdx?$/,
+});
+
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {},
-  output: "standalone", // ✅ IMPORTANT for Vercel Tailwind build
+  output: 'standalone',
+  pageExtensions: ['ts', 'tsx', 'mdx'], // ADD THIS
 };
 
-export default nextConfig;
+export default withMDX(nextConfig);

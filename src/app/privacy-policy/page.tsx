@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import AdSlot from "@/components/Adslot";
 import Link from "next/link";
 
@@ -11,8 +9,6 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <Navbar />
-
       <main className="min-h-screen bg-white flex flex-col items-center p-8">
         <section className="max-w-4xl text-gray-700 text-base leading-relaxed space-y-8">
           <h1 className="text-4xl font-bold mb-6 text-blue-700 text-center">Privacy Policy</h1>
@@ -60,8 +56,6 @@ export default function PrivacyPolicyPage() {
           <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
       </section>
       </main>
-
-      <Footer />
     </>
   );
 }

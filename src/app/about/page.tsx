@@ -10,8 +10,6 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
-
       <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white flex flex-col items-center p-8">
         {/* Hero Section */}
         <section className="text-center mb-16">
@@ -79,8 +77,6 @@ export default function AboutPage() {
             <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
           </section>
       </main>
-
-      <Footer />
     </>
   );
 }

@@ -47,7 +47,6 @@ export default function BillReminderToolPage() {
 
   return (
     <>
-      <Navbar />
     <main className="min-h-screen p-8 bg-gray-50 flex flex-col items-center">
       {/* SEO */}
       <h1 className="text-4xl font-bold mb-4 text-center">Bill Reminder Tool</h1>
@@ -150,12 +149,12 @@ export default function BillReminderToolPage() {
         <p className="mb-2"><strong>Will this tool actually send emails?</strong> This version saves your reminders. Sending real emails would require EmailJS or a backend setup (optional future upgrade).</p>
         <p className="mb-2"><strong>Can I edit a saved reminder?</strong> Right now, you can delete and re-add. Editing feature could be added easily later if needed.</p>
       </section>
+      
       {/* AdSense Ad Slot */}
       <section className="max-w-4xl mt-20">
           <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
       </section>
     </main>
-    <Footer />
     </>
   );
 }

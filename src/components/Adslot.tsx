@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 
-// Add safe type to window.adsbygoogle
 declare global {
   interface Window {
     adsbygoogle?: { push: (options: object) => void };
@@ -26,13 +25,20 @@ export default function AdSlot({ adClient, adSlot }: AdSlotProps) {
   }, []);
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block", textAlign: "center" }}
-      data-ad-client={adClient}
-      data-ad-slot={adSlot}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    ></ins>
+    <div
+      className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition p-4"
+      role="region"
+      aria-label="Advertisement"
+    >
+      <span className="sr-only">Advertisement</span>
+      <ins
+        className="adsbygoogle block text-center"
+        style={{ display: "block" }}
+        data-ad-client={adClient}
+        data-ad-slot={adSlot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+    </div>
   );
 }

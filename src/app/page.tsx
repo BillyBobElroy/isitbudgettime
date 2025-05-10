@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import AdSlot from "@/components/Adslot"; 
 
@@ -34,7 +32,6 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
-      <Navbar />
 
       <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white flex flex-col items-center p-8">
         {/* Hero Section */}
@@ -91,6 +88,11 @@ export default function HomePage() {
           ))}
         </section>
 
+          {/* AdSense Ad Slot */}
+          <section className="max-w-4xl mt-20">
+            <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
+          </section>
+
         {/* About / SEO Section */}
         <section className="max-w-4xl mt-20 text-gray-700 text-base leading-relaxed" id="about">
           <h2 className="text-3xl font-bold mb-6 text-center">Why Choose Our Tools?</h2>
@@ -115,13 +117,8 @@ export default function HomePage() {
             </a>
           </div>
         </section>
-          {/* AdSense Ad Slot */}
-          <section className="max-w-4xl mt-20">
-            <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
-          </section>
       </main>
       <CookieBanner />
-      <Footer />
     </>
   );
 }

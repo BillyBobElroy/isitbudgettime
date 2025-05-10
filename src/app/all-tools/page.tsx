@@ -11,8 +11,6 @@ export const metadata = {
 export default function AllToolsPage() {
   return (
     <>
-      <Navbar />
-
       <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white flex flex-col items-center p-8">
         {/* Page Title and Intro */}
         <section className="text-center mb-16">
@@ -56,6 +54,12 @@ export default function AllToolsPage() {
               icon: "⏰",
               title: "Bill Reminder Tool",
               desc: "Save email reminders to never miss another payment or due date again.",
+            },
+            {
+              href: "/emergency-fund-calculator",
+              icon: "🏧",
+              title: "Emergency Fund Calculator",
+              desc: "Track the amount of money you will need emergencies.",
             },
           ].map((tool, idx) => (
             <a
@@ -108,8 +112,6 @@ export default function AllToolsPage() {
           <AdSlot adClient="ca-pub-xxxxxxxxxxxxxxxx" adSlot="xxxxxxxxxx" />
           </section>
       </main>
-
-      <Footer />
     </>
   );
 }
