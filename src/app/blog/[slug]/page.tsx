@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { Comments } from "@/components/comments";
