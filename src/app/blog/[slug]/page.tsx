@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   }));
 }
 
-const BlogPostPage: FC<BlogPostPageProps> = async ({ params }) => {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const slug = decodeURIComponent(params.slug);
   const post = await getPostBySlug(slug);
 
@@ -66,5 +66,3 @@ const BlogPostPage: FC<BlogPostPageProps> = async ({ params }) => {
     </div>
   );
 };
-
-export default BlogPostPage;
