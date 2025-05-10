@@ -4,7 +4,6 @@ import { Comments } from "@/components/comments";
 import { TOC } from "@/components/TOc";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
-import type { FC } from "react";
 
 // 👇 Define expected params type
 type BlogPostPageProps = {
