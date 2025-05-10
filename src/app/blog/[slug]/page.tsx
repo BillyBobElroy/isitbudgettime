@@ -5,16 +5,20 @@ import { TOC } from "@/components/TOc";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypeSlug from "rehype-slug";
 
-// 👇 Define expected params type
-type BlogPostPageProps = {
+// ✅ Correct prop shape for dynamic route segment
+interface BlogPostPageProps {
   params: {
     slug: string;
   };
-};
+}
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
-  const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   return date.toLocaleDateString("en-US", options);
 }
 
@@ -24,6 +28,7 @@ function calculateReadingTime(text: string) {
   return Math.ceil(words / wordsPerMinute);
 }
 
+// ✅ Used for static generation in Next.js App Router
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({
@@ -31,6 +36,7 @@ export async function generateStaticParams() {
   }));
 }
 
+// ✅ This async component works with the App Router and has correct type
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const slug = decodeURIComponent(params.slug);
   const post = await getPostBySlug(slug);
@@ -64,4 +70,4 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
     </div>
   );
-};
+}
