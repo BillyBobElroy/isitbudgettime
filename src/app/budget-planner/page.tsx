@@ -3,35 +3,52 @@
 import { useEffect, useState } from "react";
 import AdSlot from "@/components/Adslot";
 
+// ✅ Define types
+type Expense = { name: string; amount: number };
+type Budget = {
+  id: string;
+  name: string;
+  income: number;
+  expenses: Expense[];
+  created: string;
+  modified: string;
+};
+
 export default function BudgetPlannerPage() {
   const [income, setIncome] = useState<number>(0);
-  const [expenses, setExpenses] = useState<{ name: string; amount: number }[]>([{ name: "", amount: 0 }]);
-  const [savedBudgets, setSavedBudgets] = useState<any[]>([]);
+  const [expenses, setExpenses] = useState<Expense[]>([{ name: "", amount: 0 }]);
+  const [savedBudgets, setSavedBudgets] = useState<Budget[]>([]);
   const [currentId, setCurrentId] = useState<string>("");
 
   // Load all saved budgets on mount
   useEffect(() => {
     const raw = localStorage.getItem("budgets");
     if (raw) {
-      const parsed = JSON.parse(raw);
-      setSavedBudgets(parsed);
-      if (parsed.length > 0) {
-        loadBudget(parsed[0]);
+      try {
+        const parsed: Budget[] = JSON.parse(raw);
+        setSavedBudgets(parsed);
+        if (parsed.length > 0) {
+          loadBudget(parsed[0]);
+        }
+      } catch {
+        console.error("Failed to parse saved budgets");
       }
     }
   }, []);
 
-  // Auto-save on every change to the current budget
+  // Auto-save on every change
   useEffect(() => {
     if (!currentId) return;
     const updated = savedBudgets.map((b) =>
-      b.id === currentId ? { ...b, income, expenses, modified: new Date().toISOString() } : b
+      b.id === currentId
+        ? { ...b, income, expenses, modified: new Date().toISOString() }
+        : b
     );
     localStorage.setItem("budgets", JSON.stringify(updated));
     setSavedBudgets(updated);
-  }, [income, expenses]);
+  }, [income, expenses, currentId, savedBudgets]);
 
-  const loadBudget = (budget: any) => {
+  const loadBudget = (budget: Budget) => {
     setCurrentId(budget.id);
     setIncome(budget.income);
     setExpenses(budget.expenses);
@@ -41,18 +58,27 @@ export default function BudgetPlannerPage() {
     const name = prompt("Enter a name for this budget:");
     if (!name) return;
     const id = crypto.randomUUID();
-    const newBudget = { id, name, income, expenses, created: new Date().toISOString(), modified: new Date().toISOString() };
+    const newBudget: Budget = {
+      id,
+      name,
+      income,
+      expenses,
+      created: new Date().toISOString(),
+      modified: new Date().toISOString(),
+    };
     const updated = [newBudget, ...savedBudgets];
     localStorage.setItem("budgets", JSON.stringify(updated));
     setSavedBudgets(updated);
     setCurrentId(id);
-    alert("✅ Budget saved as '" + name + "'.");
+    alert(`✅ Budget saved as '${name}'`);
   };
 
   const renameBudget = () => {
-    const newName = prompt("Enter a new name for this budget:");
+    const newName = prompt("Enter a new name:");
     if (!newName || !currentId) return;
-    const updated = savedBudgets.map((b) => b.id === currentId ? { ...b, name: newName } : b);
+    const updated = savedBudgets.map((b) =>
+      b.id === currentId ? { ...b, name: newName } : b
+    );
     localStorage.setItem("budgets", JSON.stringify(updated));
     setSavedBudgets(updated);
   };
@@ -80,22 +106,22 @@ export default function BudgetPlannerPage() {
 
   const updateExpense = (index: number, field: "name" | "amount", value: string) => {
     const updated = [...expenses];
-updated[index] = {
-  ...updated[index],
-  [field]: field === "amount" ? parseFloat(value) || 0 : value
-};
+    updated[index] = {
+      ...updated[index],
+      [field]: field === "amount" ? parseFloat(value) || 0 : value,
+    };
     setExpenses(updated);
   };
 
   const generateCSV = () => {
     const header = "Expense,Amount\n";
-    const rows = expenses.map(e => `${e.name},${e.amount}`).join("\n");
+    const rows = expenses.map((e) => `${e.name},${e.amount}`).join("\n");
     const summary = `\nTotal Expenses,${totalExpenses}\nRemaining,${remaining}`;
     return header + rows + summary;
   };
 
   const generateText = () => {
-    const lines = expenses.map(e => `- ${e.name}: $${e.amount.toFixed(2)}`);
+    const lines = expenses.map((e) => `- ${e.name}: $${e.amount.toFixed(2)}`);
     lines.push(`\nTotal Expenses: $${totalExpenses.toFixed(2)}`);
     lines.push(`Remaining Income: $${remaining.toFixed(2)}`);
     return `Budget Summary:\n\n${lines.join("\n")}`;
@@ -115,7 +141,6 @@ updated[index] = {
     <main className="min-h-screen p-8 bg-gray-50 flex flex-col items-center">
       <h1 className="text-4xl font-bold mb-4 text-center">Simple Budget Planner</h1>
 
-      {/* Budget Selector */}
       {savedBudgets.length > 0 && (
         <div className="mb-6 w-full max-w-2xl">
           <label className="block text-sm font-semibold mb-1">Select Saved Budget</label>
@@ -123,7 +148,7 @@ updated[index] = {
             className="border rounded px-3 py-2 w-full"
             value={currentId}
             onChange={(e) => {
-              const budget = savedBudgets.find(b => b.id === e.target.value);
+              const budget = savedBudgets.find((b) => b.id === e.target.value);
               if (budget) loadBudget(budget);
             }}
           >

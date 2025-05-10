@@ -1,14 +1,23 @@
-import { notFound } from 'next/navigation';
-import { getPostBySlug, getAllPosts } from '@/lib/blog';
-import { Comments } from '@/components/comments';
-import { TOC } from '@/components/TOc';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import rehypeSlug from 'rehype-slug';
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getPostBySlug, getAllPosts } from "@/lib/blog";
+import { Comments } from "@/components/comments";
+import { TOC } from "@/components/TOc";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypeSlug from "rehype-slug";
+import type { FC } from "react";
+
+// 👇 Define expected params type
+type BlogPostPageProps = {
+  params: {
+    slug: string;
+  };
+};
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
-  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString('en-US', options);
+  const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "long", day: "numeric" };
+  return date.toLocaleDateString("en-US", options);
 }
 
 function calculateReadingTime(text: string) {
@@ -17,7 +26,6 @@ function calculateReadingTime(text: string) {
   return Math.ceil(words / wordsPerMinute);
 }
 
-// ✅ Static generation support (good!)
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({
@@ -25,10 +33,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ Make BlogPostPage async
-export default async function BlogPostPage(props: any) {
-  const { params } = await props; // ✅ properly await props at top level
-
+const BlogPostPage: FC<BlogPostPageProps> = async ({ params }) => {
   const slug = decodeURIComponent(params.slug);
   const post = await getPostBySlug(slug);
 
@@ -48,17 +53,19 @@ export default async function BlogPostPage(props: any) {
 
         <div className="prose prose-zinc max-w-none text-black mb-16">
           <MDXRemote
-              source={post.content}
-              options={{
+            source={post.content}
+            options={{
               mdxOptions: {
-              rehypePlugins: [rehypeSlug], // 👈 Add this
-        },
-        }}
-        />
+                rehypePlugins: [rehypeSlug],
+              },
+            }}
+          />
         </div>
 
-        {post && <Comments slug={post.meta.slug} />}
+        <Comments slug={post.meta.slug} />
       </div>
     </div>
   );
-}
+};
+
+export default BlogPostPage;

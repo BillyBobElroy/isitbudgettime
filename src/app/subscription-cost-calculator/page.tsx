@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import AdSlot from "@/components/Adslot";
+import type { TooltipItem } from "chart.js";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend, Title);
 
@@ -135,11 +136,11 @@ export default function SubscriptionCostCalculatorPage() {
         color: "#111827",
         padding: { bottom: 10 },
       },
-      tooltip: {
-        callbacks: {
-          label: (ctx: any) => `$${ctx.raw.toFixed(2)} / month`,
-        },
-      },
+tooltip: {
+  callbacks: {
+    label: (ctx: TooltipItem<"bar">) => `$${(ctx.raw as number).toFixed(2)} / month`,
+  },
+},
     },
     scales: {
       y: {

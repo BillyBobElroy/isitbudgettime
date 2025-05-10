@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import AdSlot from "@/components/Adslot";
 import Link from "next/link";
 
