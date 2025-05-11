@@ -46,7 +46,7 @@ export default async function BlogPostPage(props: any) {
 
         <TOC />
 
-        <div className="prose prose-zinc prose-invert max-w-none text-black mb-16">
+        <div className="prose prose-zinc prose-invert max-w-none mb-16">
           <MDXRemote
               source={post.content}
               options={{
