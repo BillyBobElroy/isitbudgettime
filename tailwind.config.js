@@ -10,22 +10,22 @@ module.exports = {
         DEFAULT: {
           css: {
             h1: {
-              color: theme('colors.white'),
+              color: theme('colors.black'),
               fontWeight: '700',
               fontSize: '2.25rem',
             },
             h2: {
-              color: theme('colors.white'),
+              color: theme('colors.black'),
               fontWeight: '700',
               fontSize: '1.75rem',
             },
             h3: {
-              color: theme('colors.zinc.200'),
+              color: theme('colors.black'),
               fontWeight: '600',
               fontSize: '1.5rem',
             },
             h4: {
-              color: theme('colors.zinc.200'),
+              color: theme('colors.black'),
               fontWeight: '600',
             },
             p: {
@@ -37,8 +37,8 @@ module.exports = {
               marginBottom: '0.5rem',
             },
             blockquote: {
-              color: theme('colors.zinc.400'),
-              borderLeftColor: theme('colors.green.500'),
+              color: theme('colors.black'),
+              borderLeftColor: theme('colors.blue.500'),
               fontStyle: 'italic',
               paddingLeft: '1rem',
             },
