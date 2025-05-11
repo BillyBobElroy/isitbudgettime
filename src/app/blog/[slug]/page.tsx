@@ -1,25 +1,14 @@
-import { notFound } from "next/navigation";
-import { getPostBySlug, getAllPosts } from "@/lib/blog";
-import { Comments } from "@/components/comments";
-import { TOC } from "@/components/TOc";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import rehypeSlug from "rehype-slug";
-
-// ✅ Correct prop shape for dynamic route segment
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
-}
+import { notFound } from 'next/navigation';
+import { getPostBySlug, getAllPosts } from '@/lib/blog';
+import { Comments } from '@/components/comments';
+import { TOC } from '@/components/TOc';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypeSlug from 'rehype-slug';
 
 function formatDate(dateString: string) {
   const date = new Date(dateString);
-  const options: Intl.DateTimeFormatOptions = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return date.toLocaleDateString("en-US", options);
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
 }
 
 function calculateReadingTime(text: string) {
@@ -28,7 +17,7 @@ function calculateReadingTime(text: string) {
   return Math.ceil(words / wordsPerMinute);
 }
 
-// ✅ Used for static generation in Next.js App Router
+// ✅ Static generation support (good!)
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({
@@ -36,8 +25,10 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ This async component works with the App Router and has correct type
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+// ✅ Make BlogPostPage async
+export default async function BlogPostPage(props: any) {
+  const { params } = await props; // ✅ properly await props at top level
+
   const slug = decodeURIComponent(params.slug);
   const post = await getPostBySlug(slug);
 
@@ -46,27 +37,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-white text-black px-4 py-12">
+    <div className="flex flex-col items-center min-h-screen bg-zinc-900 text-white px-4 py-12">
       <div className="max-w-3xl w-full">
-        <h1 className="text-4xl font-bold text-black mb-4">{post.meta.title}</h1>
-        <p className="text-sm text-black mb-8">
+        <h1 className="text-4xl font-bold mb-4">{post.meta.title}</h1>
+        <p className="text-sm text-zinc-400 mb-8">
           {formatDate(post.meta.date)} | {calculateReadingTime(post.content)} min read
         </p>
 
         <TOC />
 
-        <div className="prose prose-zinc max-w-none text-black mb-16">
+        <div className="prose prose-zinc prose-invert max-w-none text-white mb-16">
           <MDXRemote
-            source={post.content}
-            options={{
+              source={post.content}
+              options={{
               mdxOptions: {
-                rehypePlugins: [rehypeSlug],
-              },
-            }}
-          />
+              rehypePlugins: [rehypeSlug], // 👈 Add this
+        },
+        }}
+        />
         </div>
 
-        <Comments slug={post.meta.slug} />
+        {post && <Comments slug={post.meta.slug} />}
       </div>
     </div>
   );
