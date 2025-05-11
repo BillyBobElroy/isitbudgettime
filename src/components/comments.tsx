@@ -134,7 +134,7 @@ export function Comments({ slug }: { slug: string }) {
 
       <input
         type="text"
-        className="w-full p-3 mb-4 rounded-lg bg-white text-black"
+        className="w-full p-3 mb-4 rounded-lg border-zinc-800 bg-white text-black"
         placeholder="Your Name"
         value={nameInput}
         onChange={(e) => setNameInput(e.target.value)}
@@ -142,7 +142,7 @@ export function Comments({ slug }: { slug: string }) {
 
       <textarea
         ref={textareaRef}
-        className="w-full p-4 rounded-lg bg-white text-black mb-4"
+        className="w-full p-4 rounded-lg border-zinc-800 bg-white text-black mb-4"
         rows={3}
         placeholder="Write your comment..."
         value={textInput}
@@ -151,7 +151,7 @@ export function Comments({ slug }: { slug: string }) {
 
       <button
         onClick={handleSubmit}
-        className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded-lg"
+        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg"
       >
         {editingCommentId ? 'Update Comment' : 'Post Comment'}
       </button>
