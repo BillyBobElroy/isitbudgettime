@@ -104,7 +104,7 @@ export function Comments({ slug }: { slug: string }) {
         style={{ marginLeft: `${depth * 20}px` }}
       >
         <div className="flex items-center gap-2">
-          <p className="text-sm text-green-400">{c.name}</p>
+          <p className="text-sm text-blue-400">{c.name}</p>
           {c.edited && <span className="text-xs text-blue-300 italic">(edited)</span>}
         </div>
         <p className="text-zinc-300">{c.text}</p>
@@ -134,7 +134,7 @@ export function Comments({ slug }: { slug: string }) {
 
       <input
         type="text"
-        className="w-full p-3 mb-4 rounded-lg bg-zinc-800 text-white"
+        className="w-full p-3 mb-4 rounded-lg bg-white text-black"
         placeholder="Your Name"
         value={nameInput}
         onChange={(e) => setNameInput(e.target.value)}
@@ -142,7 +142,7 @@ export function Comments({ slug }: { slug: string }) {
 
       <textarea
         ref={textareaRef}
-        className="w-full p-4 rounded-lg bg-zinc-800 text-white mb-4"
+        className="w-full p-4 rounded-lg bg-white text-black mb-4"
         rows={3}
         placeholder="Write your comment..."
         value={textInput}
@@ -151,7 +151,7 @@ export function Comments({ slug }: { slug: string }) {
 
       <button
         onClick={handleSubmit}
-        className="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-lg"
+        className="bg-blue-500 hover:bg-blue-600 text-black py-2 px-6 rounded-lg"
       >
         {editingCommentId ? 'Update Comment' : 'Post Comment'}
       </button>
@@ -165,7 +165,7 @@ export function Comments({ slug }: { slug: string }) {
               key={i}
               onClick={() => setCurrentPage(i + 1)}
               className={`px-3 py-1 rounded-lg ${
-                currentPage === i + 1 ? 'bg-green-500 text-white' : 'bg-zinc-700 text-white'
+                currentPage === i + 1 ? 'bg-blue-500 text-black' : 'bg-white text-black'
               }`}
             >
               {i + 1}
@@ -175,7 +175,7 @@ export function Comments({ slug }: { slug: string }) {
       )}
 
       {toast && (
-        <div className="fixed bottom-6 bg-green-600 px-6 py-3 rounded-lg shadow-lg text-white">
+        <div className="fixed bottom-6 bg-blue-600 px-6 py-3 rounded-lg shadow-lg text-black">
           {toast}
         </div>
       )}

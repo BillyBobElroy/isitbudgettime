@@ -21,7 +21,7 @@ export default function BlogPage() {
         {posts.map((post) => (
           <div key={post.slug} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
             <Link href={`/blog/${post.slug}`} className="group">
-              <h2 className="text-3xl font-bold mb-2 group-hover:text-green-400">{post.title}</h2>
+              <h2 className="text-3xl font-bold mb-2 group-hover:text-blue-400">{post.title}</h2>
             </Link>
             <div className="flex items-center justify-between text-black text-sm mb-4">
               <span>{formatDate(post.date)}</span>
